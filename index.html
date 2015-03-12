@@ -2,33 +2,13 @@
 
 <title>parametric.svg – SVG on rocket fuel.</title>
 
-<style>
-  html {
-    font-family: "open sans", sans-serif;
-    font-size: 20px;
-    }
-  body {
-    margin: 0 auto;
-    padding: 4rem 8rem;
-    text-align: center;
-    }
-  img {
-    outline: none;
-    }
-  .button {
-    padding: 0.5rem 1rem;
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase;
-    background-color: #9eab05;
-    }
-  p {
-    margin: 3rem auto;
-    }
-  </style>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="bower_components/papier/dist/papier-1.1.0.css">
+<link rel="stylesheet" href="bower_components/tidy/dist/tidy.invasive.css">
+<link rel="stylesheet" href="styles.css">
 
 <body>
-  <h1>
+  <h1 class="center">
     <a href="https://github.com/parametric-svg/spec">
       <svg id="logo" version="1.1" xmlns="http://www.w3.org/2000/svg" width="680" height="190"
           xmlns:parametric="https://parametric-svg.github.io/v0.2"
@@ -92,9 +72,29 @@
           </svg>
       </a>
     </h1>
-  <p>
-    <a class="button" href="https://github.com/parametric-svg/spec">
-      Star on GitHub
-      </a>
-    </p>
+
+  <article class="tidy-readable left">
+    <p>
+      <input type="number" id="stretch-out" class="demo" placeholder="type any number of pixels…">
+      <input type="text" id="fill" class="demo rolled-up" placeholder="you can also change the color…">
+      <input type="number" id="stretch-down" class="demo rolled-up" placeholder="liked the stretching? have another shot…">
+      </p>
+    <p>
+      An open, language-agnostic extension of the SVG standard.
+      </p>
+    <p>
+      Create and view parametric graphics using the tools you know and love. Declare parametric bindings directly in your drawings. It's as easy as editing a spreadsheet.
+      </p>
+    <p class="center">
+      <a href="https://github.com/parametric-svg/spec"><button class="bg-citron">
+        Star and download on GitHub
+        </button></a>
+      <br><br>
+      <a href="https://github.com/parametric-svg/spec"><button class="bg-subtle">
+        Or peek at the spec
+        </button></a>
+      </p>
+    </article>
+
+  <script src="assets/scripts.js"></script>
   </body>
