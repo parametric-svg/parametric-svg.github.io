@@ -2,6 +2,7 @@ module.exports =
   { entry: "./source/scripts.js"
   , output:
     { path: "./assets"
+    , publicPath: "assets/"
     , filename: "scripts.js"
     }
   , module: {loaders:
