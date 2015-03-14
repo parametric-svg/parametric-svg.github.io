@@ -5,11 +5,9 @@ import parametricSVG from "parametric-svg";
 
 let logo = document.getElementById("logo");
 
-let controls =
-  { stretchOut: document.getElementById("stretch-out")
-  , fill: document.getElementById("fill")
-  , stretchDown: document.getElementById("stretch-down")
-  };
+let stretchOut = document.getElementById("stretch-out")
+let fill = document.getElementById("fill")
+let stretchDown = document.getElementById("stretch-down")
 
 
 // Cache parametricSVG stuff.
@@ -20,19 +18,33 @@ let parameters = {};
 
 // Hook up events.
 
-controls.stretchOut.addEventListener("input", () => {
-  parameters.stretchOut = +controls.stretchOut.value;
+stretchOut.focus();
+stretchOut.addEventListener("input", () => {
+  parameters.stretchOut = +stretchOut.value;
   parametricSVG(tree, parameters);
-  controls.fill.classList.remove("rolled-up");
+  fill.classList.remove("rolled-up");
   });
 
-controls.fill.addEventListener("input", () => {
-  parameters.fill = controls.fill.value;
+function fillInput () {
+  parameters.fill = fill.value;
   parametricSVG(tree, parameters);
-  controls.stretchDown.classList.remove("rolled-up");
-  });
+  stretchDown.classList.remove("rolled-up");
+  }
+fill.addEventListener("input", fillInput);
+fill.addEventListener("focus", () => {
+  if (!fill.value) {
+    fill.value = "#9eab05";
+    fill.select()
+    }
+  })
+fill.addEventListener("blur", () => {
+  if (!fill.value) {
+    fill.value = "#9eab05";
+    fillInput();
+    }
+  })
 
-controls.stretchDown.addEventListener("input", () => {
-  parameters.stretchDown = +controls.stretchDown.value;
+stretchDown.addEventListener("input", () => {
+  parameters.stretchDown = +stretchDown.value;
   parametricSVG(tree, parameters);
   });

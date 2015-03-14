@@ -54,10 +54,9 @@
 
 	var logo = document.getElementById("logo");
 
-	var controls = { stretchOut: document.getElementById("stretch-out"),
-	  fill: document.getElementById("fill"),
-	  stretchDown: document.getElementById("stretch-down")
-	};
+	var stretchOut = document.getElementById("stretch-out");
+	var fill = document.getElementById("fill");
+	var stretchDown = document.getElementById("stretch-down");
 
 	// Cache parametricSVG stuff.
 
@@ -66,20 +65,34 @@
 
 	// Hook up events.
 
-	controls.stretchOut.addEventListener("input", function () {
-	  parameters.stretchOut = +controls.stretchOut.value;
+	stretchOut.focus();
+	stretchOut.addEventListener("input", function () {
+	  parameters.stretchOut = +stretchOut.value;
 	  parametricSVG(tree, parameters);
-	  controls.fill.classList.remove("rolled-up");
+	  fill.classList.remove("rolled-up");
 	});
 
-	controls.fill.addEventListener("input", function () {
-	  parameters.fill = controls.fill.value;
+	function fillInput() {
+	  parameters.fill = fill.value;
 	  parametricSVG(tree, parameters);
-	  controls.stretchDown.classList.remove("rolled-up");
+	  stretchDown.classList.remove("rolled-up");
+	}
+	fill.addEventListener("input", fillInput);
+	fill.addEventListener("focus", function () {
+	  if (!fill.value) {
+	    fill.value = "#9eab05";
+	    fill.select();
+	  }
+	});
+	fill.addEventListener("blur", function () {
+	  if (!fill.value) {
+	    fill.value = "#9eab05";
+	    fillInput();
+	  }
 	});
 
-	controls.stretchDown.addEventListener("input", function () {
-	  parameters.stretchDown = +controls.stretchDown.value;
+	stretchDown.addEventListener("input", function () {
+	  parameters.stretchDown = +stretchDown.value;
 	  parametricSVG(tree, parameters);
 	});
 
@@ -274,9 +287,9 @@
 
 	module.exports = getParameters;
 
-	__webpack_require__(10);
+	__webpack_require__(9);
 
-	var asObject = _interopRequire(__webpack_require__(9));
+	var asObject = _interopRequire(__webpack_require__(10));
 
 	var evalExpression = _interopRequire(__webpack_require__(8));
 
@@ -481,6 +494,13 @@
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__(12);
+
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (factory) {
 	  if (true) {
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, module], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -542,13 +562,6 @@
 	    return result;
 	  }
 	});
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(12);
-
 
 /***/ },
 /* 11 */
