@@ -15,9 +15,14 @@
           >
 
           <defs>
+              <ref param="stretchDown" parametric:default="0" />
               <clipPath id="svg-shadow-clip"><rect height="59" x="518" y="68"
                   parametric:width="91 + stretchOut"
                              width="91"
+                  parametric:height="59 + 2 * stretchDown"
+                             height="59"
+                  parametric:y="68 - stretchDown"
+                             y="68"
                   /></clipPath>
               </defs>
 
@@ -34,13 +39,19 @@
               <path d="m 492.2657,125.51104 c -7.75164,-10e-6 -13.82318,-2.44526 -18.21463,-7.33576 -4.39148,-4.8905 -6.58722,-11.71058 -6.58721,-20.46028 -1e-5,-8.98252 2.2789,-15.96895 6.83672,-20.95931 4.5578,-5.02352 10.79569,-7.53531 18.71367,-7.53537 4.69086,6e-5 9.18213,0.81514 13.47384,2.44526 l -1.34738,4.39147 c -4.69093,-1.56358 -8.76635,-2.3454 -12.22627,-2.34545 -6.65377,5e-5 -11.69398,2.06271 -15.12064,6.18799 -3.42669,4.0921 -5.14003,9.99729 -5.14002,17.7156 -10e-6,7.31915 1.71333,13.058 5.14002,17.21658 3.42666,4.12533 8.21736,6.18799 14.3721,6.18798 4.92374,1e-5 9.49818,-0.88161 13.72335,-2.64486 l 0,4.59109 c -3.45999,1.6967 -8.00116,2.54505 -13.62355,2.54506"/>
               </g>
 
-          <rect id="rectangle" height="59" x="518" y="68" fill="#9eab05"
+          <rect id="rectangle" x="518"
               parametric:width="91 + stretchOut"
                          width="91"
+              parametric:fill="fill"
+                         fill="#9eab05"
+              parametric:height="59 + 2 * stretchDown"
+                         height="59"
+              parametric:y="68 - stretchDown"
+                         y="68"
               />
 
           <path id="dimension" fill="none" stroke="#4d4d4d" stroke-linecap="square"
-              parametric:d=" 'm 518.5,51'
+              parametric:d=" 'm 518.5,' + (51 - stretchDown)
                            + 'l 0,5'
                            + 'm 0,-2.5'
                            + 'l ' + (90 + stretchOut) + ',0'
