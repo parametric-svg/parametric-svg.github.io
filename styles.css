@@ -1,0 +1,33 @@
+html {
+  font-family: "open sans", sans-serif;
+  }
+body {
+  padding: 4rem 8rem;
+  }
+svg.logo {
+  overflow: visible;
+  }
+.tidy-readable {
+  margin: 0 auto;
+  max-width: 43rem;
+  padding: 0 4.3em;
+  }
+.bg-citron {
+  background-color: #9eab05;
+  color: white;
+  }
+.demo,
+.demo:focus {
+  border-color: #9eab05;
+  }
+.demo {
+  display: block;
+  margin: 20px -10%;
+  width: 120%;
+  transition: all 0.4s;
+  }
+.demo.rolled-up {
+  margin-top: -56px;
+  opacity: 0;
+  visibility: hidden;
+  }

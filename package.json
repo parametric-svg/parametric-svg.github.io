@@ -1,0 +1,18 @@
+{ "name": "parametric-svg.github.io"
+, "version": "0.0.0"
+, "author":
+  { "name": "Tomek Wiszniewski"
+  , "email": "t.wiszniewski@gmail.com"
+  }
+
+, "scripts":
+  { "build": "webpack --progress"
+  }
+
+, "devDependencies":
+  { "webpack": "1.7.2"
+  , "babel-loader": "4.1.0"
+
+  , "parametric-svg": "0.0.4"
+  }
+}
