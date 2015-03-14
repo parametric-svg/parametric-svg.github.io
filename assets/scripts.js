@@ -50,10 +50,38 @@
 
 	var parametricSVG = _interopRequire(__webpack_require__(1));
 
+	// Cache DOM elements.
+
 	var logo = document.getElementById("logo");
-	window.parent.l = logo;
-	window.parent.p = parametricSVG(logo, { xStretch: -5 });
-	window.parent.ps = parametricSVG;
+
+	var controls = { stretchOut: document.getElementById("stretch-out"),
+	  fill: document.getElementById("fill"),
+	  stretchDown: document.getElementById("stretch-down")
+	};
+
+	// Cache parametricSVG stuff.
+
+	var tree = parametricSVG(logo);
+	var parameters = {};
+
+	// Hook up events.
+
+	controls.stretchOut.addEventListener("input", function () {
+	  parameters.stretchOut = +controls.stretchOut.value;
+	  parametricSVG(tree, parameters);
+	  controls.fill.classList.remove("rolled-up");
+	});
+
+	controls.fill.addEventListener("input", function () {
+	  parameters.fill = controls.fill.value;
+	  parametricSVG(tree, parameters);
+	  controls.stretchDown.classList.remove("rolled-up");
+	});
+
+	controls.stretchDown.addEventListener("input", function () {
+	  parameters.stretchDown = +controls.stretchDown.value;
+	  parametricSVG(tree, parameters);
+	});
 
 /***/ },
 /* 1 */

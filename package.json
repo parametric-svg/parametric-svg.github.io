@@ -12,5 +12,7 @@
 , "devDependencies":
   { "webpack": "1.7.2"
   , "babel-loader": "4.1.0"
+
+  , "parametric-svg": "0.0.4"
   }
 }
