@@ -62,39 +62,46 @@
 
 	var tree = parametricSVG(logo);
 	var parameters = {};
+	function updateSVG() {
+	  parametricSVG(tree, parameters);
+	}
 
 	// Hook up events.
 
-	stretchOut.focus();
+	var hiddenClass = "rolled-up";
+
 	stretchOut.addEventListener("input", function () {
 	  parameters.stretchOut = +stretchOut.value;
-	  parametricSVG(tree, parameters);
-	  fill.classList.remove("rolled-up");
+	  updateSVG();
+	  fill.classList.remove(hiddenClass);
 	});
 
 	function fillInput() {
 	  parameters.fill = fill.value;
-	  parametricSVG(tree, parameters);
-	  stretchDown.classList.remove("rolled-up");
+	  updateSVG();
+	  stretchDown.classList.remove(hiddenClass);
+	}
+	function fallbackFillValue() {
+	  if (!fill.value) fill.value = "#9eab05";
 	}
 	fill.addEventListener("input", fillInput);
 	fill.addEventListener("focus", function () {
-	  if (!fill.value) {
-	    fill.value = "#9eab05";
-	    fill.select();
-	  }
+	  fallbackFillValue();
+	  fill.select();
 	});
 	fill.addEventListener("blur", function () {
-	  if (!fill.value) {
-	    fill.value = "#9eab05";
-	    fillInput();
-	  }
+	  fallbackFillValue();
+	  fillInput();
 	});
 
 	stretchDown.addEventListener("input", function () {
 	  parameters.stretchDown = +stretchDown.value;
-	  parametricSVG(tree, parameters);
+	  updateSVG();
 	});
+
+	// Set focus.
+
+	stretchOut.focus();
 
 /***/ },
 /* 1 */

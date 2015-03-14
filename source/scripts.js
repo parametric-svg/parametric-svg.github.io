@@ -14,37 +14,44 @@ let stretchDown = document.getElementById("stretch-down")
 
 let tree = parametricSVG(logo);
 let parameters = {};
-
+function updateSVG () {
+  parametricSVG(tree, parameters);
+  }
 
 // Hook up events.
 
-stretchOut.focus();
+let hiddenClass = "rolled-up";
+
 stretchOut.addEventListener("input", () => {
   parameters.stretchOut = +stretchOut.value;
-  parametricSVG(tree, parameters);
-  fill.classList.remove("rolled-up");
+  updateSVG();
+  fill.classList.remove(hiddenClass);
   });
 
 function fillInput () {
   parameters.fill = fill.value;
-  parametricSVG(tree, parameters);
-  stretchDown.classList.remove("rolled-up");
+  updateSVG();
+  stretchDown.classList.remove(hiddenClass);
+  }
+function fallbackFillValue () {
+  if (!fill.value) fill.value = "#9eab05";
   }
 fill.addEventListener("input", fillInput);
 fill.addEventListener("focus", () => {
-  if (!fill.value) {
-    fill.value = "#9eab05";
-    fill.select()
-    }
+  fallbackFillValue();
+  fill.select()
   })
 fill.addEventListener("blur", () => {
-  if (!fill.value) {
-    fill.value = "#9eab05";
-    fillInput();
-    }
+  fallbackFillValue();
+  fillInput();
   })
 
 stretchDown.addEventListener("input", () => {
   parameters.stretchDown = +stretchDown.value;
-  parametricSVG(tree, parameters);
+  updateSVG();
   });
+
+
+// Set focus.
+
+stretchOut.focus();
