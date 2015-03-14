@@ -4,6 +4,9 @@ html {
 body {
   padding: 4rem 8rem;
   }
+svg.logo {
+  overflow: visible;
+  }
 .tidy-readable {
   margin: 0 auto;
   max-width: 43rem;
@@ -13,8 +16,11 @@ body {
   background-color: #9eab05;
   color: white;
   }
-.demo {
+.demo,
+.demo:focus {
   border-color: #9eab05;
+  }
+.demo {
   display: block;
   margin: 20px -10%;
   width: 120%;
