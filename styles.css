@@ -23,4 +23,5 @@ body {
 .demo.rolled-up {
   margin-top: -56px;
   opacity: 0;
+  visibility: hidden;
   }
