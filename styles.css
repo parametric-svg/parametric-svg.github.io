@@ -16,6 +16,9 @@ svg.logo {
   background-color: #9eab05;
   color: white;
   }
+a {
+  color: #9eab05;
+  }
 .demo,
 .demo:focus {
   border-color: #9eab05;
